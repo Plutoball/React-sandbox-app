@@ -2,6 +2,9 @@
 
 // TaskItem.tsx is used to manage a single task item in the task manager app.
 
+import React from 'react';
+import './TaskItem.css'; // Importing CSS for styling the TaskItem component
+
 // interface is used to define the shape of a Task object
 interface Task{
     id: number;
@@ -29,14 +32,14 @@ const deleteTask = () => {
 };// This line filters out the task to be deleted from the tasks array
 
 return (
-    <div style={{ textDecoration: task.completed ? "line-through" : "none" }}>
+    <div className="task-item" style={{ textDecoration: task.completed ? "line-through" : "none" }}>
         <span>{task.title}</span>
 
-        <button onClick={toggleCompletion}>
+        <button className="task-button" onClick={toggleCompletion}>
             {task.completed ? "Undo" : "Complete"}
         </button> {/* This button toggles the completion status of the task */}
 
-        <button onClick={deleteTask}>Delete</button>
+        <button className="task-button" onClick={deleteTask}>Delete</button>
     </div>
 );
 };
