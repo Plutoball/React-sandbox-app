@@ -32,14 +32,14 @@ const deleteTask = () => {
 };// This line filters out the task to be deleted from the tasks array
 
 return (
-    <div className="task-item" style={{ textDecoration: task.completed ? "line-through" : "none" }}>
-        <span>{task.title}</span>
+    <div className="task-item">
+        <span style={{ textDecoration: task.completed ? "line-through" : "none" }}>{task.title}</span>
 
-        <button className="task-button" onClick={toggleCompletion}>
+        <button className={`toggle-task-button ${task.completed ? "undo-task-button" : "complete-task-button"}`} onClick={toggleCompletion}>
             {task.completed ? "Undo" : "Complete"}
         </button> {/* This button toggles the completion status of the task */}
 
-        <button className="task-button" onClick={deleteTask}>Delete</button>
+        <button className="delete-task-button" onClick={deleteTask}>Delete</button>
     </div>
 );
 };
